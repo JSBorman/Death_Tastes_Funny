@@ -32,3 +32,10 @@
    - Playing w/ Perspective? Different characters can see different portions of a map/image (like Fez, if each character had a different side of the cube) 
 
    - Key Question for the genre: Can the player reselect a character who has died?
+
+### Platformer
+   - Actions previously performed can assist in next round of play
+   -- i.e you get two(?) past lives to work with at any time, effectively forming extra platforms
+   - Swap out characters like thomas was alone, but triggered on death instead
+
+   - Notes: how to be careful to not make the player  kill themselves to progress ...
