@@ -37,5 +37,10 @@
    - Actions previously performed can assist in next round of play
    -- i.e you get two(?) past lives to work with at any time, effectively forming extra platforms
    - Swap out characters like thomas was alone, but triggered on death instead
-
-   - Notes: how to be careful to not make the player  kill themselves to progress ...
+   - Each level is like a stage in a dream
+   --- Falling from a platform means you have to walk back to the start of the level/checkpoint (doesn't kill you)
+   --- End of the level, you wake up from the dream into a new area
+   --- Note: potentially art heavy
+   
+### Misc
+   - You play as someone who manages a funeral home 
