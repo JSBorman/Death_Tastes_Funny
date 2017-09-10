@@ -1,5 +1,10 @@
 # Death_Tastes_Funny
 
+Super Colider Reference: https://github.com/jorgegarcia/UnityOSC
+
+
+
+
 ## Key Question: What happens after you die?
 
 ## Resources / Inspiration
