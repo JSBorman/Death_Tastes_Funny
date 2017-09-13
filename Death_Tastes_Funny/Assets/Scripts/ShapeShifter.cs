@@ -9,6 +9,7 @@ public class ShapeShifter : MonoBehaviour {
     public SpriteRenderer[] renderers;
     public float fadeTime = 5f;
     SpriteRenderer activeRenderer;
+    bool switching = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,19 +20,23 @@ public class ShapeShifter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (GameManager.INSTANCE.Debug) {
-            if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            if (Input.GetKeyDown(KeyCode.E)) {
                 SetShape(2);
-            } else if (Input.GetKeyDown(KeyCode.Alpha4)) {
+            } else if (Input.GetKeyDown(KeyCode.R)) {
                 SetShape(3);
-            } else if (Input.GetKeyDown(KeyCode.Alpha6)) {
+            } else if (Input.GetKeyDown(KeyCode.Y)) {
                 SetShape(4);
-            } else if (Input.GetKeyDown(KeyCode.Alpha8)) {
+            } else if (Input.GetKeyDown(KeyCode.I)) {
                 SetShape(5);
             }
         }
 	}
 
     public void SetShape(int level) {
+        if (switching) {
+            return;
+        }
+        switching = true;
         if (level < 0 || level >= shapes.Length) {
             Debug.LogError(string.Format("{0} is not a valid shape level",level));
             return;
@@ -39,26 +44,48 @@ public class ShapeShifter : MonoBehaviour {
             Debug.LogError(string.Format("There is no sprite for shape level {0}", level));
             return;
         }
+        Debug.Log(string.Format("Changing to level {0}...", level));
         SpriteRenderer oldRenderer = activeRenderer;
-        int i = 0;
-        while (oldRenderer == activeRenderer) {
-            activeRenderer = renderers[i];
-        }
+        activeRenderer = oldRenderer == renderers[0] ? renderers[1] : renderers[0];
+        activeRenderer.sprite = shapes[level];
         StartCoroutine(SwitchShapes(activeRenderer,oldRenderer));
     }
 
     IEnumerator SwitchShapes(SpriteRenderer active, SpriteRenderer old) {
-        Fade(active,1);
-        yield return new WaitForSeconds(.5f);
-        Fade(old,-1);
+        StartCoroutine(Grow(active));
+        yield return StartCoroutine(Fade(old));
+        switching = false;
     }
 
-    IEnumerator Fade(SpriteRenderer r, int dir) {
+    IEnumerator Fade(SpriteRenderer r) {
         Color c = r.color;
         float t = 0;
-        while (t < fadeTime) {
-            c.a = (dir ==-1 ? 1 - t : t) / fadeTime;
+        while (t <= fadeTime) {
+            c.a = 1 - t / fadeTime;
+            r.color = c;
+            t += Time.deltaTime;
             yield return null;
         }
+        r.gameObject.SetActive(false);
+    }
+
+    IEnumerator Grow(SpriteRenderer r) {
+        Vector3 scale = Vector3.zero;
+        Vector3 position = new Vector3(0, -.5f, 0);
+        r.gameObject.transform.localScale = scale;
+        r.gameObject.transform.localPosition = position;
+        r.color = new Color(r.color.r, r.color.g, r.color.b, 1);
+        r.gameObject.SetActive(true);
+        float t = 0;
+        while (t <= fadeTime) {
+            t += Time.deltaTime;
+            scale.x = scale.y = scale.z = t / fadeTime;
+            position.y = -.5f + t / (2*fadeTime);
+            r.gameObject.transform.localScale = scale;
+            r.gameObject.transform.localPosition = position;
+            yield return null;
+        }
+        r.gameObject.transform.localScale = Vector3.one;
+        r.gameObject.transform.localPosition = Vector3.zero;
     }
 }
