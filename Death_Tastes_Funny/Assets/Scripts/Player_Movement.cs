@@ -26,7 +26,7 @@ public class Player_Movement : MonoBehaviour {
 		//OSC SEND
 		if (old_pos != transform.position) {
 			float move = 1.0f;
-			OSCHandler.Instance.SendMessageToClient ("SuperCollider", "/move", move);
+			//OSCHandler.Instance.SendMessageToClient ("SuperCollider", "/move", move);
 		}
 	}
 }
