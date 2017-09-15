@@ -5,9 +5,12 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour {
 
 	public float move_speed = 10.0f;
+    public float jumpForce = 10f;
+    public bool isGrounded;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -28,5 +31,22 @@ public class Player_Movement : MonoBehaviour {
 			float move = 1.0f;
 			//OSCHandler.Instance.SendMessageToClient ("SuperCollider", "/move", move);
 		}
-	}
+
+        if (Input.GetKeyDown(KeyCode.W) & isGrounded)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, jumpForce);
+        }
+
+
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        isGrounded = true;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        isGrounded = false;
+    }
 }

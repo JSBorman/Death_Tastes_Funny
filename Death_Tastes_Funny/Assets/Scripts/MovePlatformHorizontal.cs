@@ -39,8 +39,16 @@ public class MovePlatformHorizontal : MonoBehaviour {
         {
             transform.Translate(Time.deltaTime * -speed, 0, 0);
         }
-
     }
 
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.transform.parent = transform;
+    }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.parent = null;
+    }
 }
