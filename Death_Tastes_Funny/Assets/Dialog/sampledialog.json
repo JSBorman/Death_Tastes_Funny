@@ -1,0 +1,36 @@
+{
+	"statement":"I like cake",
+	"good":{
+		"value": 1,
+		"statement":"Here take this cake",
+		"continuation":{
+			"statement":"My Man",
+			"neutral":{
+				"value":0,
+				"statement":"Peace Dude"
+			}
+		}
+	},
+	"bad":{
+		"value": -1,
+		"statement":"Fuck your cake, pie is my shit",
+		"continuation":{
+			"statement":"Why cant we be friends?",
+			"bad":{
+				"value":-1,
+				"statement":"Piss off"
+			}
+		}
+	},
+	"neutral":{
+		"value": 0,
+		"statement":"Thats nice",
+		"continuation":{
+			"statement":"Why does nobody love me?",
+			"neutral":{
+				"value":0,
+				"statement":"I dont know dude"
+			}
+		}
+	}
+}
