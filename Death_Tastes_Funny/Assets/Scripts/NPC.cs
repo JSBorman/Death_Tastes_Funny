@@ -74,7 +74,8 @@ public class NPC : MonoBehaviour {
 
     private void AdvanceDialog(Dialog dialog) {
         //todo random order and gui
-        activeConversation = dialog.levels[level][Random.Range(0, dialog.levels[level].Length)];
+        Dialog.Conversation[] c = dialog.levels.getLevel(level);
+        activeConversation = c[Random.Range(0,c.Length)];
         if (activeConversation.good.statement != null) {
             Debug.LogWarning(activeConversation.good.statement);
         }
