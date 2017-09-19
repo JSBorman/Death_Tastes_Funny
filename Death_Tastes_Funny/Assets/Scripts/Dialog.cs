@@ -9,13 +9,17 @@ public class Dialog{
     public class Response {
         public int value;
         public string statement;
-        public Dialog continuation;
+        //public Dialog continuation
     }
 
-    public string statement;
+    [System.Serializable]
+    public class Conversation {
+        public string statement;
 
-    public Response good;
-    public Response bad;
-    public Response neutral;
+        public Response good;
+        public Response bad;
+        public Response neutral;
+    }
 
+    public Conversation[][] levels;
 }
