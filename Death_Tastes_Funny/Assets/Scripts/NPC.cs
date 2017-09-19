@@ -6,6 +6,9 @@ public class NPC : MonoBehaviour {
 
     public TextAsset dialogFile = null;
     public GameObject interactTooltip;
+	public AudioClip character_theme;
+	public AudioSource NPC_Source;
+
     private Dialog dialog;
     private Dialog activeDialog;
 
@@ -14,6 +17,9 @@ public class NPC : MonoBehaviour {
         if (dialogFile != null) {
             dialog = JsonUtility.FromJson<Dialog>(dialogFile.text);
         }
+
+		NPC_Source.clip = character_theme;
+		NPC_Source.Play ();
     }
 
     // Update is called once per frame
