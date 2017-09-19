@@ -5,11 +5,14 @@ using UnityEngine;
 public class Background_Translation : MonoBehaviour {
 
 	public GameObject player;
-	public GameObject background_piece;
-	public Camera our_camera;
+	public Camera camera;
+
+	//Parallaxing variables
+	public float upper_bound = 100f;
+	public float lower_bound = -100f;
 	public float move_rate;
 
-	Vector3 player_pos;
+	Vector3 player_last_pos;
 
 	// Use this for initialization
 	void Start () {
@@ -18,29 +21,32 @@ public class Background_Translation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		bool player_moved = false;
+		Sprite sprite = this.GetComponent<Sprite> ();
+		//Don't change objects when outside of viewport
+		Vector3 viewPos = camera.WorldToViewportPoint(this.transform.position);
+		if ( viewPos.x < 0 || viewPos.x > 1)
+			return;
+
+		parralaxing ();
+	}
+
+	public void parralaxing(){
 		float new_pos = 0.0f;
 
-		if (player_pos.x != player.transform.position.x) {
-			player_moved = true;
+		//Player moved left
+		if (player_last_pos.x >= player.transform.position.x && this.transform.position.y > lower_bound) {
+			new_pos = move_rate * -1;
 		}
 
-		if (player_moved) {
-			new_pos = move_rate / Random.Range (1, 5);
+		//Player moved right
+		else if (player_last_pos.x <= player.transform.position.x && this.transform.position.y < upper_bound) {
+			new_pos = move_rate;
 		}
 
-		//Check against upper bound of camera
-		if (our_camera.pixelRect.y <= background_piece.transform.position.y + our_camera.pixelHeight) {
-			new_pos = new_pos * -1;				
-		}
+		//If the player moved, transform the background piece
+		if(player_last_pos.x != player.transform.position.x)
+			this.transform.Translate (0, new_pos, 0);
 
-		//Lower Bound of camera
-		else if (our_camera.pixelRect.min.y >= background_piece.transform.position.y) {
-			new_pos = new_pos * -1;
-		}
-				
-		background_piece.transform.Translate (0, new_pos, 0);
-
-		player_pos = player.transform.position;
+		player_last_pos = player.transform.position;
 	}
 }
