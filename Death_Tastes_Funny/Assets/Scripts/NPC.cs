@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour {
 
     public TextAsset dialogFile = null;
     public GameObject interactTooltip;
+    Vector3 tooltipOScale;
 	public AudioClip character_theme;
 	public AudioSource NPC_Source;
     int level = 4;
@@ -18,6 +19,8 @@ public class NPC : MonoBehaviour {
         if (dialogFile != null) {
             dialog = JsonUtility.FromJson<Dialog>(dialogFile.text);
         }
+        tooltipOScale = interactTooltip.transform.localScale;
+        interactTooltip.transform.localScale = Vector3.zero;
 
 		NPC_Source.clip = character_theme;
 		NPC_Source.Play ();
@@ -27,9 +30,28 @@ public class NPC : MonoBehaviour {
     void Update() {
         //TODO animate?
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision) {
-        //TODO Display interaction tooltip
+        Debug.Log("FullScreenMovieScalingMode");
+        StopAllCoroutines();
+        StartCoroutine(ScaleTooltip(1));
+    }
+
+    private void OnTriggerExit2D(Collider2D collision) {
+        StopAllCoroutines();
+        StartCoroutine(ScaleTooltip(-1));
+    }
+
+    IEnumerator ScaleTooltip(int dir) {
+        float t = 0;
+        Vector3 startScale = interactTooltip.transform.localScale;
+        Vector3 destScale = dir == 1 ? tooltipOScale : Vector3.zero;
+        Debug.Log(startScale); Debug.Log(destScale);
+        while (t <= .25f) {
+            interactTooltip.transform.localScale = Vector3.Lerp(startScale, destScale, t / .25f);
+            t+= Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void Interact() {
