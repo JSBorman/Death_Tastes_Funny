@@ -8,10 +8,9 @@ public class NPC : MonoBehaviour {
     public GameObject interactTooltip;
 	public AudioClip character_theme;
 	public AudioSource NPC_Source;
-    int level = 4;
 
     private Dialog dialog;
-    private Dialog.Conversation activeConversation;
+    private Dialog activeDialog;
 
     // Use this for initialization
     void Start() {
@@ -44,27 +43,43 @@ public class NPC : MonoBehaviour {
     public void Select(int selection) {
         switch (selection) {
             case 0:
-                level -= activeConversation.good.value;
-                endDialog();
-                //if (activeConversation.good != null) {
-                //    if (activeConversation.good.continuation == null) {
-                //        endDialog();
-                //    }
-                //    else {
-                //        AdvanceDialog(activeConversation.good.continuation);
-                //    }
-                //}
-                //else {
-                //    Debug.LogError("a good selection does not exist for this activeDialog");
-                //}
+                if (activeDialog.good != null) {
+                    if (activeDialog.good.continuation == null) {
+                        endDialog();
+                    }
+                    else {
+                        AdvanceDialog(activeDialog.good.continuation);
+                    }
+                }
+                else {
+                    Debug.LogError("a good selection does not exist for this activeDialog");
+                }
                 break;
             case 1:
-                level -= activeConversation.neutral.value;
-                endDialog();
+                if (activeDialog.neutral != null) {
+                    if (activeDialog.good.continuation == null) {
+                        endDialog();
+                    }
+                    else {
+                        AdvanceDialog(activeDialog.neutral.continuation);
+                    }
+                }
+                else {
+                    Debug.LogError("a neutral selection does not exist for this activeDialog");
+                }
                 break;
             case 2:
-                level -= activeConversation.bad.value;
-                endDialog();
+                if (activeDialog.bad != null) {
+                    if (activeDialog.good.continuation == null) {
+                        endDialog();
+                    }
+                    else {
+                        AdvanceDialog(activeDialog.bad.continuation);
+                    }
+                }
+                else {
+                    Debug.LogError("a bad selection does not exist for this activeDialog");
+                }
                 break;
             default:
                 Debug.LogError("a valid selection was not made");
@@ -74,16 +89,23 @@ public class NPC : MonoBehaviour {
 
     private void AdvanceDialog(Dialog dialog) {
         //todo random order and gui
+<<<<<<< HEAD
+        activeDialog = dialog;
+        Debug.Log(dialog.statement);
+        if (dialog.good.statement != null) {
+            Debug.LogWarning(dialog.good.statement);
+=======
         Dialog.Conversation[] c = dialog.levels.getLevel(level);
         activeConversation = c[Random.Range(0,c.Length)];
         if (activeConversation.good.statement != null) {
             Debug.LogWarning(activeConversation.good.statement);
+>>>>>>> 6f5490198f27af69cf502051bf64c865fda500d2
         }
-        if (activeConversation.neutral.statement != null) {
-            Debug.LogWarning(activeConversation.neutral.statement);
+        if (dialog.neutral.statement != null) {
+            Debug.LogWarning(dialog.neutral.statement);
         }
-        if (activeConversation.bad.statement != null) {
-            Debug.LogWarning(activeConversation.bad.statement);
+        if (dialog.bad.statement != null) {
+            Debug.LogWarning(dialog.bad.statement);
         }
     }
 }
