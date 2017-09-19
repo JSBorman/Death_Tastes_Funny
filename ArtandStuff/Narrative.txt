@@ -1,0 +1,175 @@
+﻿Character 1:
+Circle
+* You helped me get back on my feet.Thanks for helping me out of a rough time of my life!
+Octagon
+* I’ve got a job interview and I’m super nervous. Have any advice?
+   * Just be yourself, I’m sure you’ll get it.
+   * Show off your best side and you’ll be golden.
+   * Why even try? It’s not like you’re going to get it. 
+* I’ve narrowed down the job search, just gotta pick one. Any ideas?
+   * Go for what best fits your personality. Loving your work is more important than money.
+   * Whatever pays most.
+   * You won’t have a chance, so what’s it matter?
+Pentagon
+* I’ve tried every trick in the book, but no job around here is hiring.
+   * I can try contacting friends I know to help.
+   * Keep looking, you’ll find something.
+   * The system’s rigged. Good luck finding anything.
+* Been looking for work but I’ve got no leads.
+   * It’ll happen, just keep at it. I’ll keep an ear to the ground as well.
+   * I’m sure you’ll find something. Keep at it.
+   *  You’re on your own.
+Square
+* Care to help out someone down on their luck?
+   * Here’s something to tide you over a bit, but I suggest finding some honest work.
+   * Here’s some spare change.
+   * Get a job like the rest of us.
+* Got any spare change for a person in need?
+   * Here you go. I hope you can find work soon.
+   * This is all I can offer for now.
+   * Not on your life.
+Triangle
+* Hey stranger, have a heart? I’m in desperate need for just about anything to get me by.
+   * I’m sorry. Let me get you a hot meal.
+   * This is all the spare change I got.
+   * Sorry, can’t help you.
+* I’ve lost everything, can’t even afford something to eat.
+   * Let me buy you something to tide you over.
+   * Here’s some cash.
+   * The next person will cover you.
+Line
+* You look like someone in the need of a little pick me up.
+   * Is this your idea of an occupation? You don’t have to resort to dealing drugs.
+   * I’ll have to pass for today.
+   * Well, if you’re offering, I’m buying.
+* Got plenty of quality watches, at prices that are a steal.
+   * You need to be careful. Selling stolen watches can only lead to trouble.
+   * Whatever you’re peddling, I’m not buying.
+   * I could use a new watch for cheap.
+Dot
+* Hey, care to join me in a little heist? You’re a person who gets it.
+   * What? I’m calling the police.
+   * I don’t know what you’re talking about, and I don’t wanna know.
+   * A little extra cash never hurt.
+* Give me your wallet or this’ll end poorly for you.
+   * You don’t have to do this, let me help you out.
+   * Here’s my wallet, please don’t hurt me!
+   * Just take it and get out of here.
+
+
+Character 2:
+Circle
+* You gave me the courage to follow my heart and I thank you!
+Octagon
+* I’m wanna ask the love of my life to marry me, but I’m afraid of rejection.
+   * Cold feet are normal. Follow your heart.
+   * Maybe it’s best to wait.
+   * Trust me, that road only leads to heartache.
+* How do you know if you’ve found ‘the one’?
+   * You’ll know. The relationship will feel right.
+   * It’s hard to tell sometimes.
+   * True love doesn’t exist.
+Pentagon
+* Moving in together is normal, right? I shouldn’t feel so nervous, right?
+   * Nerves are a normal part of taking the next step.
+   * It’ll pass.
+   * Your hesitance is screaming that you’re making a mistake.
+* How do you know if you’re ready to take the next step with someone?
+   * Take a chance and things will work out.
+   * Only you can answer that question. Trust your gut.
+   * You never really know. 
+Square
+* Having some relationship troubles. Any friendly advice? 
+   * Talk out your problems. Always offers good insight.
+   * Just ride it out.
+   * It’s probably nothing.
+* Relationships are hard to maintain.
+   * Anything worth keeping is.
+   * It’s normal for it to be difficult.
+   * They’re not worth it in the end.
+Triangle
+* Not talking to each other kills a relationship, right?
+   * I’d say so. Might want to break that silence, and fast.
+   * I mean, not always? It’s probably fine.
+   * If it’s meant to be, it’s meant to be. Don’t rock the boat.
+* Isn’t distance supposed to make the heart grow fonder? I’m afraid it’s going to kill my relationship.
+   * If distance is hurting you, say something.
+   * Just hold out hope for your next meeting.
+   * That’s just how it goes.
+Line
+* How do you deal with a massive argument in a relationship?
+   * It’s okay to not see eye to eye on everything, just be respectful of each other.
+   * Time heals all wounds, as they say.
+   * You answer to no one. Stand your ground.
+* How can someone be satisfied in a relationship?
+   * You need to find your version of happiness in the person you’re with.
+   * Maybe you don’t need to keep looking.
+   * You’re just a pit that feelings fall into.
+Dot
+* I’m in the doghouse now. If we lived together, I’d be sleeping on the couch. You ever been there?
+   * You might want to have a long chat and get back in good graces.
+   * I’ve been there, it’ll probably pass.
+   * At this point you might want to just give up.
+* Infidelity isn’t that bad, is it?
+   * Breaking that bond of trust can ruin a relationship forever. Be honest and true.
+   * I wouldn’t advise it.
+   * If they never find out, it’s fine.
+
+
+Character 3:
+Circle
+* You’ve done right by me, and for that I thank you.
+Octagon
+* Is this your wallet? I found it on the ground behind you.
+   * I’ve got mine in my pocket. We should probably turn that into the police.
+   * Not mine.
+   * Definitely mine, there still any cash in it?
+* Would you like to donate to help feed the homeless?
+   * I’d love to help those in need. I can volunteer as well.
+   * Sure.
+   * The homeless are not worth my time.
+Pentagon
+* My friend is dating an asshole but she doesn’t think she is.
+   * Try talking to her about it.
+   * It’s not your place to meddle in their relationship.
+   * Try breaking them up.
+* I just saw my friend’s husband leave a motel with another woman. Should I tell her what I saw?
+   * Try getting the full story before you tell her.
+   * Tell your friend what you saw.
+   *  She doesn’t need to know.
+Square
+* I’ve lost my dog, have you seen one wandering around?
+   * Can’t say I have, but I’ll help you look.
+   * I’ll keep an eye out.
+   * Find him on your own.
+* My daughter just stole from the store. What do I do?
+   * Return what she stole and keep an eye on her.
+   * It’s fine, kids do that all the time.
+   * Free things never hurt.
+Triangle
+* These punks that live down the street won’t stop harassing me.
+   * Maybe we can try and talk some sense into them.
+   * Stand up for yourself.
+   * You probably deserve it.
+* Help, someone just stole my wallet!
+   * I’ll call the police.
+   * Better get running.
+   * That sucks.
+Line
+* I just hit someone’s car, but they’re not around.
+   * They’re probably nearby. Stick around so you guys can sort this out.
+   * Leave your number so they can contact you.
+   * Nobody needs to know.
+* My landlord hasn’t charged me for rent in three months. Should I contact him?
+   * I’d suggest calling him immediately.
+   * Just send in the payments anyway.
+   * Take the free rent.
+Dot
+* I just beat up the guy my girlfriend’s been cheating on me with.
+   * You should turn yourself in.
+   * Check to see if he’s okay.
+   * He deserved it.
+* I was accidently sent this new phone in the mail. Should I keep it?
+   * You should return the phone.
+   * Give it to a friend who might need a new phone.
+   * Finders keepers.
