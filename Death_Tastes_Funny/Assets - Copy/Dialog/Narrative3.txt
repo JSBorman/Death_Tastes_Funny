@@ -1,0 +1,189 @@
+{
+   "levels":{
+      "one":[
+         { "statement":"I just beat up the guy my girlfriend’s been cheating on me with.",
+           "good": {
+               "statement":"You should turn yourself in.",
+               "value":-100
+            },
+            "neutral":{
+               "statement":"Check to see if he’s okay.",
+               "value":0
+            },
+            "bad":{
+               "statement":"He deserved it.",
+               "value":-1
+            }
+         },
+         { "statement":"I was accidently sent this new phone in the mail. Should I keep it?",
+           "good": {
+               "statement":"You should return the phone.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Give it to a friend who might need a new phone.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Finders keepers.",
+               "value":-1
+            }
+         }
+      ],
+      "two":[
+         { "statement":"I just hit someone’s car, but they’re not around.",
+           "good": {
+               "statement":"They’re probably nearby. Stick around so you guys can sort this out.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Leave your number so they can contact you.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Nobody needs to know.",
+               "value":-1
+            }
+         },
+         { "statement":"My landlord hasn’t charged me for rent in three months. Should I contact him?",
+           "good": {
+               "statement":"I’d suggest calling him immediately.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Just send in the payments anyway.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Take the free rent.",
+               "value":-1
+            }
+         }
+      ],
+      "three":[
+         { "statement":"These punks that live down the street won’t stop harassing me.",
+           "good": {
+               "statement":"Maybe we can try and talk some sense into them.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Stand up for yourself.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You probably deserve it.",
+               "value":-1
+            }
+         },
+         { "statement":"Help, someone just stole my wallet!",
+           "good": {
+               "statement":"I’ll call the police.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Better get running.",
+               "value":0
+            },
+            "bad":{
+               "statement":"That sucks.",
+               "value":-1
+            }
+         }
+      ],
+      "four":[
+         { "statement":"I’ve lost my dog, have you seen one wandering around?",
+           "good": {
+               "statement":"Can’t say I have, but I’ll help you look.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I’ll keep an eye out.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Find him on your own.",
+               "value":-1
+            }
+         },
+         { "statement":"My daughter just stole from the store. What do I do?",
+           "good": {
+               "statement":"Return what she stole and keep an eye on her.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"It’s fine, kids do that all the time.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Free things never hurt.",
+               "value":-1
+            }
+         }
+      ],
+      "five":[
+         { "statement":"My friend is dating an asshole but she doesn’t think she is.",
+           "good": {
+               "statement":"Try talking to her about it.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"It’s not your place to meddle in their relationship.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Try breaking them up.",
+               "value":-1
+            }
+         },
+         { "statement":"I just saw my friend’s husband leave a motel with another woman. Should I tell her what I saw?",
+           "good": {
+               "statement":"Try getting the full story before you tell her.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Tell your friend what you saw.",
+               "value":0
+            },
+            "bad":{
+               "statement":"She doesn’t need to know.",
+               "value":-1
+            }
+         }
+      ],
+      "six":[
+         { "statement":"Is this your wallet? I found it on the ground behind you.",
+           "good": {
+               "statement":"I’ve got mine in my pocket. We should probably turn that into the police.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Not mine.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Definitely mine, there still any cash in it?",
+               "value":-1
+            }
+         },
+         { "statement":"Would you like to donate to help feed the homeless?",
+           "good": {
+               "statement":"I’d love to help those in need. I can volunteer as well.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Sure.",
+               "value":0
+            },
+            "bad":{
+               "statement":"The homeless are not worth my time.",
+               "value":-1
+            }
+         }
+      ],
+      "seven":[
+         {
+            "statement":"You’ve done right by me, and for that I thank you."
+         }
+      ]
+   }
+}
