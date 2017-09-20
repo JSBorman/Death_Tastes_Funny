@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShapeShifter : MonoBehaviour {
 
-    public int startLevel = 3;
+    public int currentLevel = 3;
     public Sprite[] shapes;
     public SpriteRenderer[] renderers;
     public float fadeTime = 5f;
@@ -14,7 +14,7 @@ public class ShapeShifter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         activeRenderer = renderers[0];
-        activeRenderer.sprite = shapes[startLevel];
+        activeRenderer.sprite = shapes[currentLevel];
 	}
 	
 	// Update is called once per frame
@@ -48,6 +48,9 @@ public class ShapeShifter : MonoBehaviour {
 	}
 
     public void SetShape(int level) {
+        if (level == currentLevel) {
+            return;
+        }
         if (level < 0 || level >= shapes.Length) {
             Debug.LogError(string.Format("{0} is not a valid shape level",level));
             return;
@@ -63,6 +66,7 @@ public class ShapeShifter : MonoBehaviour {
         SpriteRenderer oldRenderer = activeRenderer;
         activeRenderer = oldRenderer == renderers[0] ? renderers[1] : renderers[0];
         activeRenderer.sprite = shapes[level];
+        currentLevel = level;
         StartCoroutine(SwitchShapes(activeRenderer,oldRenderer));
     }
 

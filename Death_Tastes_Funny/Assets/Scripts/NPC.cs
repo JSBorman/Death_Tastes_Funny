@@ -9,11 +9,12 @@ public class NPC : MonoBehaviour {
     Vector3 tooltipOScale;
 	public AudioClip character_theme;
 	public AudioSource NPC_Source;
-    int level = 4;
+    int level = 3;
 
     private Dialog dialog;
     private Dialog.Conversation activeConversation;
     ShapeShifter ss;
+    Interaction interaction;
 
     // Use this for initialization
     void Start() {
@@ -62,19 +63,21 @@ public class NPC : MonoBehaviour {
         }
     }
 
-    public void Interact() {
+    public void Interact(Interaction i) {
         Debug.Log("Interaction Started");
         AdvanceDialog(dialog);
+        interaction = i;
     }
 
     private void endDialog() {
         Debug.Log("Dialog Over");
+        interaction.endInteraction();
     }
 
     public void Select(int selection) {
         switch (selection) {
             case 0:
-                level -= activeConversation.good.value;
+                level += activeConversation.good.value;
                 endDialog();
                 //if (activeConversation.good != null) {
                 //    if (activeConversation.good.continuation == null) {
@@ -89,11 +92,11 @@ public class NPC : MonoBehaviour {
                 //}
                 break;
             case 1:
-                level -= activeConversation.neutral.value;
+                level += activeConversation.neutral.value;
                 endDialog();
                 break;
             case 2:
-                level -= activeConversation.bad.value;
+                level += activeConversation.bad.value;
                 endDialog();
                 break;
             default:
@@ -115,5 +118,9 @@ public class NPC : MonoBehaviour {
         if (activeConversation.bad.statement != null) {
             Debug.LogWarning(activeConversation.bad.statement);
         }
+    }
+
+    public int getLevel() {
+        return level;
     }
 }

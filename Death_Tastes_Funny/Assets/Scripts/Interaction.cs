@@ -15,7 +15,7 @@ public class Interaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!interacting && collidingWith != null && Input.GetKeyDown(KeyCode.F)) {
-            collidingWith.Interact();
+            collidingWith.Interact(this);
             interacting = true;
         } else if (interacting) {
             if (Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -32,13 +32,17 @@ public class Interaction : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         collidingWith = collision.GetComponent<NPC>();
-        Debug.Log("Les Go");
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.GetComponent<NPC>() == collidingWith) {
             collidingWith = null;
-            Debug.Log("Les Stop");
         }
     }
+
+    public void endInteraction() {
+        interacting = false;
+    }
+
+
 }
