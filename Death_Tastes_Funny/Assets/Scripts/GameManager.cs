@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
     public SpriteRenderer[] shapes;
     public Color shapeToolColor;
 
+   
+
 	// Use this for initialization
 	void Awake () {
 		if (INSTANCE != null) {
@@ -76,6 +78,7 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject go in NPCs) {
             go.GetComponent<Rigidbody2D>().gravityScale = 0;
             go.GetComponent<Rigidbody2D>().velocity =Vector2.zero;
+            go.GetComponent<Spin>().enabled = true;
             Transform t = spawns[Random.Range(0, spawns.Count)];
             go.transform.position = t.position;
             spawns.Remove(t);
@@ -85,6 +88,7 @@ public class GameManager : MonoBehaviour {
         player.GetComponent<Interaction>().SetPlayerMovementEnabled(false);
         player.GetComponent<Rigidbody2D>().gravityScale = 0;
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        player.GetComponent<Spin>().enabled = true;
         StartCoroutine(PlayerFlyToo(spawns[Random.Range(0, spawns.Count)].position));
         StartCoroutine(LerpCam(dir == 1 ? heavenMidpoint : hellMidpoint));
     }

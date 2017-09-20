@@ -18,8 +18,8 @@ public class ShapeShifter : MonoBehaviour {
     Vector3 start;
     float maxSat=0;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         activeRenderer = renderers[0];
         activeRenderer.sprite = shapes[currentLevel];
         originalColor = activeRenderer.color;
@@ -97,6 +97,7 @@ public class ShapeShifter : MonoBehaviour {
             c.g = newColor(originalColor.g, Mathf.Min(1 - (t / mT), 0));
             c.b = newColor(originalColor.b, Mathf.Min(1 - (t / mT), 0));
             activeRenderer.color = c;
+
         }
         if (slider != null) {
             slider.value = Mathf.Min(1 - (t / mT),0);
