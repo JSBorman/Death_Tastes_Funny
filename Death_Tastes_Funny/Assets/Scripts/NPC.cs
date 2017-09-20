@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour {
 
     public GameObject buttonContainer;
     public GameObject[] buttons;
-    public Text speechBubble;
+    public GameObject speechBubble;
 
     Coroutine interactionCoroutine;
 
@@ -43,13 +43,23 @@ public class NPC : MonoBehaviour {
     }
     
     private void OnTriggerEnter2D(Collider2D collision) {
-        StopCoroutine(interactionCoroutine);
+        if (level == 6) {
+            speechBubble.SetActive(true);
+            speechBubble.GetComponentInChildren<Text>().text=dialog.levels.getLevel(6)[0].statement;
+            return;
+        }
+        if (interactionCoroutine!=null)StopCoroutine(interactionCoroutine);
         interactionCoroutine = StartCoroutine(ScaleTooltip(1));
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        StopCoroutine(interactionCoroutine);
-        interactionCoroutine= StartCoroutine(ScaleTooltip(-1));
+        if (level == 6) {
+            speechBubble.SetActive(true);
+            speechBubble.GetComponentInChildren<Text>().text = dialog.levels.getLevel(6)[0].statement;
+            return;
+        }
+        if (interactionCoroutine != null) StopCoroutine(interactionCoroutine);
+        interactionCoroutine = StartCoroutine(ScaleTooltip(-1));
     }
 
     public void refresh(Vector3 location) {
@@ -69,6 +79,10 @@ public class NPC : MonoBehaviour {
     }
 
     public void Interact(Interaction i) {
+        if (level == 6) {
+            interaction.endInteraction();
+            return;
+        }
         Debug.Log("Interaction Started");
         AdvanceDialog(dialog);
         interaction = i;
@@ -77,6 +91,7 @@ public class NPC : MonoBehaviour {
     private void endDialog() {
         Debug.Log("Dialog Over");
         buttonContainer.SetActive(false);
+        speechBubble.SetActive(false);
         interaction.endInteraction();
     }
 
@@ -116,7 +131,8 @@ public class NPC : MonoBehaviour {
         buttonContainer.SetActive(true);
         Dialog.Conversation[] c = dialog.levels.getLevel(level);
         activeConversation = c[Random.Range(0,c.Length)];
-        speechBubble.text = activeConversation.statement;
+        speechBubble.GetComponentInChildren<Text>().text = activeConversation.statement;
+        speechBubble.SetActive(true);
         if (activeConversation.good.statement != null) {
             buttons[0].GetComponentInChildren<Text>().text = activeConversation.good.statement;
         }
