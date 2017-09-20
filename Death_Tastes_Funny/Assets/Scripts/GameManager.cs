@@ -115,8 +115,8 @@ public class GameManager : MonoBehaviour {
 
     public void setActiveShape(float a) {
         int level = player.currentLevel;
-        Color c;
         for (int i = 0; i<shapes.Length; i++) {
+            Color c = new Color();
             if (i == level) {
                 c = shapeToolColor;
             } else {
