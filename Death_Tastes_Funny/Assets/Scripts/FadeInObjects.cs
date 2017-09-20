@@ -44,6 +44,7 @@ void OnTriggerEnter2D(Collider2D other)
     {
         startFade = true;
         print("starting fade...");
+        GameManager.INSTANCE.setActiveShape(0);
 
 
         foreach (SpriteRenderer s in objectToFadeIn.GetComponentsInChildren<SpriteRenderer>())

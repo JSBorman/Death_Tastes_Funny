@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
 
     private void Start() {
         RefreshNPCs();
+        setActiveShape(1);
     }
 
     // Update is called once per frame
@@ -54,7 +55,6 @@ public class GameManager : MonoBehaviour {
             totalLevel += n.getLevel();
         }
         player.SetShape(totalLevel / NPCs.Length);
-        setActiveShape(totalLevel / NPCs.Length);
         if (totalLevel/NPCs.Length == 6) {
             StartCoroutine(WaitAndAfterlife(.5f, 1));
         } else if (totalLevel/NPCs.Length == 0) {
@@ -113,15 +113,14 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void setActiveShape(int level) {
-        float a;
+    public void setActiveShape(float a) {
+        int level = player.currentLevel;
         Color c;
         for (int i = 0; i<shapes.Length; i++) {
-            a = shapes[i].color.a;
             if (i == level) {
-                c= shapeToolColor;
+                c = shapeToolColor;
             } else {
-                c= Color.white; 
+                c = Color.white; 
             }
             c.a = a;
             shapes[i].color = c;
