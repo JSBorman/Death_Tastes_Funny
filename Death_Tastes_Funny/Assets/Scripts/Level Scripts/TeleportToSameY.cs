@@ -10,5 +10,6 @@ public class TeleportToSameY : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         other.transform.position = new Vector3(teleportLocation.transform.position.x, other.transform.position.y, 0);
+        GameManager.INSTANCE.RefreshNPCs();
     }
 }
