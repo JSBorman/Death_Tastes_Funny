@@ -1,0 +1,189 @@
+{
+   "levels":[
+      [
+         { "statement":"Hey, care to join me in a little heist? You’re a person who gets it.",
+           "good": {
+               "statement":"What? I’m calling the police.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I don’t know what you’re talking about, and I don’t wanna know.",
+               "value":0
+            },
+            "bad":{
+               "statement":"A little extra cash never hurt.",
+               "value":-1
+            }
+         },
+         { "statement":"Give me your wallet or this’ll end poorly for you.",
+           "good": {
+               "statement":"You don’t have to do this, let me help you out.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Here’s my wallet, please don’t hurt me!",
+               "value":0
+            },
+            "bad":{
+               "statement":"Just take it and get out of here.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"You look like someone in the need of a little pick me up.",
+           "good": {
+               "statement":"Is this your idea of an occupation? You don’t have to resort to dealing drugs.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I’ll have to pass for today.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Well, if you’re offering, I’m buying.",
+               "value":-1
+            }
+         },
+         { "statement":"Got plenty of quality watches, at prices that are a steal.",
+           "good": {
+               "statement":"You need to be careful. Selling stolen watches can only lead to trouble.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Whatever you’re peddling, I’m not buying.",
+               "value":0
+            },
+            "bad":{
+               "statement":"I could use a new watch for cheap.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"Hey stranger, have a heart? I’m in desperate need for just about anything to get me by.",
+           "good": {
+               "statement":"I’m sorry. Let me get you a hot meal.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"This is all the spare change I got.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Sorry, can’t help you.",
+               "value":-1
+            }
+         },
+         { "statement":"I’ve lost everything, can’t even afford something to eat.",
+           "good": {
+               "statement":"Let me buy you something to tide you over.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Here’s some cash.",
+               "value":0
+            },
+            "bad":{
+               "statement":"The next person will cover you.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"Care to help out someone down on their luck?",
+           "good": {
+               "statement":"Here’s something to tide you over a bit, but I suggest finding some honest work.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Here’s some spare change.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Get a job like the rest of us.",
+               "value":-1
+            }
+         },
+         { "statement":"Got any spare change for a person in need?",
+           "good": {
+               "statement":"Here you go. I hope you can find work soon.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"This is all I can offer for now.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Not on your life.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"I’ve tried every trick in the book, but no job around here is hiring.",
+           "good": {
+               "statement":"I can try contacting friends I know to help.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Keep looking, you’ll find something.",
+               "value":0
+            },
+            "bad":{
+               "statement":"The system’s rigged. Good luck finding anything.",
+               "value":-1
+            }
+         },
+         { "statement":"Been looking for work but I’ve got no leads.",
+           "good": {
+               "statement":"It’ll happen, just keep at it. I’ll keep an ear to the ground as well.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I’m sure you’ll find something. Keep at it.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You’re on your own.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"I’ve got a job interview and I’m super nervous. Have any advice?",
+           "good": {
+               "statement":"Show off your best side and you’ll be golden.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Just be yourself, I’m sure you’ll get it.",
+               "value":1
+            },
+            "bad":{
+               "statement":"Why even try? It’s not like you’re going to get it.",
+               "value":-1
+            }
+         },
+         { "statement":"I’ve narrowed down the job search, just gotta pick one. Any ideas?",
+           "good": {
+               "statement":"Go for what best fits your personality. Loving your work is more important than money.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Whatever pays most.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You won’t have a chance, so what’s it matter?",
+               "value":-1
+            }
+         }
+      ],
+      [
+         {
+            "statement":"You helped me get back on my feet.Thanks for helping me out of a rough time of my life!",
+         }
+      ]
+   ]
+}

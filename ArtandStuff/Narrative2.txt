@@ -1,0 +1,189 @@
+{
+   "levels":[
+      [
+         { "statement":"I’m in the doghouse now. If we lived together, I’d be sleeping on the couch. You ever been there?",
+           "good": {
+               "statement":"You might want to have a long chat and get back in good graces.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I’ve been there, it’ll probably pass.",
+               "value":0
+            },
+            "bad":{
+               "statement":"At this point you might want to just give up.",
+               "value":-1
+            }
+         },
+         { "statement":"Infidelity isn’t that bad, is it?",
+           "good": {
+               "statement":"Breaking that bond of trust can ruin a relationship forever. Be honest and true.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I wouldn’t advise it.",
+               "value":0
+            },
+            "bad":{
+               "statement":"If they never find out, it’s fine.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"How do you deal with a massive argument in a relationship?",
+           "good": {
+               "statement":"It’s okay to not see eye to eye on everything, just be respectful of each other.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Time heals all wounds, as they say.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You answer to no one. Stand your ground.",
+               "value":-1
+            }
+         },
+         { "statement":"How can someone be satisfied in a relationship?",
+           "good": {
+               "statement":"You need to find your version of happiness in the person you’re with.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Maybe you don’t need to keep looking.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You’re just a pit that feelings fall into.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"Not talking to each other kills a relationship, right?",
+           "good": {
+               "statement":"I’d say so. Might want to break that silence, and fast.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"I mean, not always? It’s probably fine.",
+               "value":0
+            },
+            "bad":{
+               "statement":"If it’s meant to be, it’s meant to be. Don’t rock the boat.",
+               "value":-1
+            }
+         },
+         { "statement":"Isn’t distance supposed to make the heart grow fonder? I’m afraid it’s going to kill my relationship.",
+           "good": {
+               "statement":"If distance is hurting you, say something.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Just hold out hope for your next meeting.",
+               "value":0
+            },
+            "bad":{
+               "statement":"That’s just how it goes.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"Having some relationship troubles. Any friendly advice?",
+           "good": {
+               "statement":"Talk out your problems. Always offers good insight.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Just ride it out.",
+               "value":0
+            },
+            "bad":{
+               "statement":"It’s probably nothing.",
+               "value":-1
+            }
+         },
+         { "statement":"Relationships are hard to maintain.",
+           "good": {
+               "statement":"Anything worth keeping is.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"It’s normal for it to be difficult.",
+               "value":0
+            },
+            "bad":{
+               "statement":"They’re not worth it in the end.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"Moving in together is normal, right? I shouldn’t feel so nervous, right?",
+           "good": {
+               "statement":"Nerves are a normal part of taking the next step.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"It’ll pass.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Your hesitance is screaming that you’re making a mistake.",
+               "value":-1
+            }
+         },
+         { "statement":"How do you know if you’re ready to take the next step with someone?",
+           "good": {
+               "statement":"Take a chance and things will work out.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Only you can answer that question. Trust your gut.",
+               "value":0
+            },
+            "bad":{
+               "statement":"You never really know.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         { "statement":"I wanna ask the love of my life to marry me, but I’m afraid of rejection.",
+           "good": {
+               "statement":"Cold feet are normal. Follow your heart.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"Maybe it’s best to wait.",
+               "value":0
+            },
+            "bad":{
+               "statement":"Trust me, that road only leads to heartache.",
+               "value":-1
+            }
+         },
+         { "statement":"How do you know if you’ve found ‘the one’?",
+           "good": {
+               "statement":"You’ll know. The relationship will feel right.",
+               "value":1
+            },
+            "neutral":{
+               "statement":"It’s hard to tell sometimes.",
+               "value":0
+            },
+            "bad":{
+               "statement":"True love doesn’t exist.",
+               "value":-1
+            }
+         }
+      ],
+      [
+         {
+            "statement":"You gave me the courage to follow my heart and I thank you!",
+         }
+      ]
+   ]
+}
