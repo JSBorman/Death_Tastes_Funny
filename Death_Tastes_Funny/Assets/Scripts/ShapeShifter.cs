@@ -28,7 +28,7 @@ public class ShapeShifter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameManager.INSTANCE.Debug) {
+		if (GameManager.INSTANCE.debug) {
             if (Input.GetKeyDown(KeyCode.Q)) {
                 SetShape(0);
             }

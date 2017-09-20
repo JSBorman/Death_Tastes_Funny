@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour {
     Coroutine interactionCoroutine;
 
     // Use this for initialization
-    void Start() {
+    void Awake() {
         if (dialogFile != null) {
             dialog = JsonUtility.FromJson<Dialog>(dialogFile.text);
         }
@@ -62,6 +62,10 @@ public class NPC : MonoBehaviour {
 
     public void refresh(Vector3 location) {
         transform.position = location;
+        Debug.Log(level); Debug.Log(location);
+        if (ss == null) {
+            Debug.Log("YourMom");
+        }
         ss.SetShape(level);
     }
 

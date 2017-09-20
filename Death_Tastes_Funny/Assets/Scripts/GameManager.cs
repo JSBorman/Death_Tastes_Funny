@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager INSTANCE;
-    public bool Debug;
+    public bool debug;
     public GameObject[] NPCs;
     public GameObject[] NPCspawns;
     public ShapeShifter player;
@@ -17,19 +17,22 @@ public class GameManager : MonoBehaviour {
     public float flyTime = 2f;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (INSTANCE != null) {
             enabled = false;
             return;
         } else {
             INSTANCE = this;
         }
-        RefreshNPCs();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Debug) {
+
+    private void Start() {
+        RefreshNPCs();
+    }
+
+    // Update is called once per frame
+    void Update () {
+        if (debug) {
             if (Input.GetKeyDown(KeyCode.Equals)) {
                 GoToAfterlife(1);
             }
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour {
     public void RefreshNPCs() {
         int totalLevel = 0;
         for (int i =0; i<NPCs.Length; i++) {
+            Debug.Log(i);
             NPC n = NPCs[i].GetComponent<NPC>();
             Transform[] spawns =  NPCspawns[i].GetComponentsInChildren<Transform>();
             n.refresh(spawns[Random.Range(0, spawns.Length)].position);
