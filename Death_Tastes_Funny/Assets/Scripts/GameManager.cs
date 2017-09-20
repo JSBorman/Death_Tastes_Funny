@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
     public float flyTime = 2f;
 
     public SpriteRenderer[] shapes;
+    public Color shapeToolColor;
 
 	// Use this for initialization
 	void Awake () {
@@ -47,7 +48,6 @@ public class GameManager : MonoBehaviour {
     public void RefreshNPCs() {
         int totalLevel = 0;
         for (int i =0; i<NPCs.Length; i++) {
-            Debug.Log(i);
             NPC n = NPCs[i].GetComponent<NPC>();
             Transform[] spawns =  NPCspawns[i].GetComponentsInChildren<Transform>();
             n.refresh(spawns[Random.Range(0, spawns.Length)].position);
@@ -116,7 +116,9 @@ public class GameManager : MonoBehaviour {
     public void setActiveShape(int level) {
         for (int i = 0; i<shapes.Length; i++) {
             if (i == level) {
-                shapes[i].color = player.GetComponentInChildren<SpriteRenderer>().color;
+                Debug.Log(shapes[i].gameObject.name);
+                shapes[i].color = shapeToolColor;
+                Debug.Log(shapes[i].color);
             } else {
                 shapes[i].color = Color.white; 
             }
