@@ -36,6 +36,6 @@ public class GameManager : MonoBehaviour {
             n.refresh(spawns[Random.Range(0, spawns.Length)].position);
             totalLevel += n.getLevel();
         }
-        player.SetShape(totalLevel / 3);
+        player.SetShape(totalLevel / NPCs.Length);
     }
 }
