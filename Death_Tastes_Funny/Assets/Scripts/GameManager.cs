@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour {
     public Transform hellMidpoint;
     public float flyTime = 2f;
 
+    public SpriteRenderer[] shapes;
+
 	// Use this for initialization
 	void Awake () {
 		if (INSTANCE != null) {
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour {
             totalLevel += n.getLevel();
         }
         player.SetShape(totalLevel / NPCs.Length);
-        
+        setActiveShape(totalLevel / NPCs.Length);
         if (totalLevel/NPCs.Length == 6) {
             StartCoroutine(WaitAndAfterlife(.5f, 1));
         } else if (totalLevel/NPCs.Length == 0) {
@@ -108,6 +110,16 @@ public class GameManager : MonoBehaviour {
             transform.position = lerp;
             t += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    public void setActiveShape(int level) {
+        for (int i = 0; i<shapes.Length; i++) {
+            if (i == level) {
+                shapes[i].color = player.GetComponentInChildren<SpriteRenderer>().color;
+            } else {
+                shapes[i].color = Color.white; 
+            }
         }
     }
 }
