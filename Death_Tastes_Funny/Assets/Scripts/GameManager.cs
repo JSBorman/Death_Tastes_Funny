@@ -114,14 +114,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void setActiveShape(int level) {
+        float a;
+        Color c;
         for (int i = 0; i<shapes.Length; i++) {
+            a = shapes[i].color.a;
             if (i == level) {
-                Debug.Log(shapes[i].gameObject.name);
-                shapes[i].color = shapeToolColor;
-                Debug.Log(shapes[i].color);
+                c= shapeToolColor;
             } else {
-                shapes[i].color = Color.white; 
+                c= Color.white; 
             }
+            c.a = a;
+            shapes[i].color = c;
         }
     }
 }
