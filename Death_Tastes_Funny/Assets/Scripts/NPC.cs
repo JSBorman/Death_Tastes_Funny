@@ -54,9 +54,7 @@ public class NPC : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (level == 6) {
-            speechBubble.SetActive(true);
-            speechBubble.GetComponentInChildren<Text>().text = dialog.levels.getLevel(6)[0].statement;
-            return;
+            speechBubble.SetActive(false);
         }
         if (interactionCoroutine != null) StopCoroutine(interactionCoroutine);
         interactionCoroutine = StartCoroutine(ScaleTooltip(-1));
@@ -124,6 +122,8 @@ public class NPC : MonoBehaviour {
                 Debug.LogError("a valid selection was not made");
                 break;
         }
+        level = Mathf.Max(level, 0);
+        level = Mathf.Min(level, 6);
     }
 
     private void AdvanceDialog(Dialog dialog) {
@@ -133,18 +133,19 @@ public class NPC : MonoBehaviour {
         activeConversation = c[Random.Range(0,c.Length)];
         speechBubble.GetComponentInChildren<Text>().text = activeConversation.statement;
         speechBubble.SetActive(true);
+        int offset = Random.Range(0, 3);
         if (activeConversation.good.statement != null) {
-            buttons[0].GetComponentInChildren<Text>().text = activeConversation.good.statement;
+            buttons[(0+offset)%3].GetComponentInChildren<Text>().text = activeConversation.good.statement;
         }
         if (activeConversation.neutral.statement != null) {
-            buttons[1].GetComponentInChildren<Text>().text = activeConversation.neutral.statement;
+            buttons[(1 + offset)% 3].GetComponentInChildren<Text>().text = activeConversation.neutral.statement;
         }
         if (activeConversation.bad.statement != null) {
-            buttons[2].GetComponentInChildren<Text>().text = activeConversation.bad.statement;
+            buttons[(2 + offset)% 3].GetComponentInChildren<Text>().text = activeConversation.bad.statement;
         }
         for (int i = 0; i<buttons.Length; i++) {
             int j = i;
-            Button b = buttons[i].GetComponent<Button>();
+            Button b = buttons[(i+offset)%3].GetComponent<Button>();
             b.onClick.RemoveAllListeners();
             b.onClick.AddListener(delegate(){ Debug.Log(j); Select(j); });
         }

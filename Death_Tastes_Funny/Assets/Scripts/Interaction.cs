@@ -15,8 +15,9 @@ public class Interaction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (!interacting && collidingWith != null && Input.GetKeyDown(KeyCode.F)) {
-            collidingWith.Interact(this);
+            SetPlayerMovementEnabled(false);
             interacting = true;
+            collidingWith.Interact(this);
         }
 	}
 
@@ -32,6 +33,11 @@ public class Interaction : MonoBehaviour {
 
     public void endInteraction() {
         interacting = false;
+        SetPlayerMovementEnabled(true);
+    }
+
+    public void SetPlayerMovementEnabled(bool enabled) {
+        GetComponent<Player_Movement>().enabled = enabled;
     }
 
 
