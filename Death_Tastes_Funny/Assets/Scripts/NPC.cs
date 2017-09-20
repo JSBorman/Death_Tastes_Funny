@@ -21,6 +21,8 @@ public class NPC : MonoBehaviour {
     public GameObject[] buttons;
     public Text speechBubble;
 
+    Coroutine interactionCoroutine;
+
     // Use this for initialization
     void Start() {
         if (dialogFile != null) {
@@ -41,13 +43,13 @@ public class NPC : MonoBehaviour {
     }
     
     private void OnTriggerEnter2D(Collider2D collision) {
-        StopAllCoroutines();
-        StartCoroutine(ScaleTooltip(1));
+        StopCoroutine(interactionCoroutine);
+        interactionCoroutine = StartCoroutine(ScaleTooltip(1));
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        StopAllCoroutines();
-        StartCoroutine(ScaleTooltip(-1));
+        StopCoroutine(interactionCoroutine);
+        interactionCoroutine= StartCoroutine(ScaleTooltip(-1));
     }
 
     public void refresh(Vector3 location) {
