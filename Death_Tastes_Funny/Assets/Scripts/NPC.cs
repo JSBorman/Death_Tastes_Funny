@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour {
 
@@ -15,6 +16,10 @@ public class NPC : MonoBehaviour {
     private Dialog.Conversation activeConversation;
     ShapeShifter ss;
     Interaction interaction;
+
+    public GameObject buttonContainer;
+    public GameObject[] buttons;
+    public Text speechBubble;
 
     // Use this for initialization
     void Start() {
@@ -36,7 +41,6 @@ public class NPC : MonoBehaviour {
     }
     
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("FullScreenMovieScalingMode");
         StopAllCoroutines();
         StartCoroutine(ScaleTooltip(1));
     }
@@ -55,7 +59,6 @@ public class NPC : MonoBehaviour {
         float t = 0;
         Vector3 startScale = interactTooltip.transform.localScale;
         Vector3 destScale = dir == 1 ? tooltipOScale : Vector3.zero;
-        Debug.Log(startScale); Debug.Log(destScale);
         while (t <= .25f) {
             interactTooltip.transform.localScale = Vector3.Lerp(startScale, destScale, t / .25f);
             t+= Time.deltaTime;
@@ -71,6 +74,7 @@ public class NPC : MonoBehaviour {
 
     private void endDialog() {
         Debug.Log("Dialog Over");
+        buttonContainer.SetActive(false);
         interaction.endInteraction();
     }
 
@@ -107,18 +111,28 @@ public class NPC : MonoBehaviour {
 
     private void AdvanceDialog(Dialog dialog) {
         //todo random order and gui
+        buttonContainer.SetActive(true);
         Dialog.Conversation[] c = dialog.levels.getLevel(level);
         activeConversation = c[Random.Range(0,c.Length)];
+        speechBubble.text = activeConversation.statement;
         if (activeConversation.good.statement != null) {
-            Debug.LogWarning(activeConversation.good.statement);
+            buttons[0].GetComponentInChildren<Text>().text = activeConversation.good.statement;
         }
         if (activeConversation.neutral.statement != null) {
-            Debug.LogWarning(activeConversation.neutral.statement);
+            buttons[1].GetComponentInChildren<Text>().text = activeConversation.neutral.statement;
         }
         if (activeConversation.bad.statement != null) {
-            Debug.LogWarning(activeConversation.bad.statement);
+            buttons[2].GetComponentInChildren<Text>().text = activeConversation.bad.statement;
+        }
+        for (int i = 0; i<buttons.Length; i++) {
+            int j = i;
+            Button b = buttons[i].GetComponent<Button>();
+            b.onClick.RemoveAllListeners();
+            b.onClick.AddListener(delegate(){ Debug.Log(j); Select(j); });
         }
     }
+
+
 
     public int getLevel() {
         return level;

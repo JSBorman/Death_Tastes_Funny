@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShapeShifter : MonoBehaviour {
 
@@ -10,11 +11,19 @@ public class ShapeShifter : MonoBehaviour {
     public float fadeTime = 5f;
     SpriteRenderer activeRenderer;
     bool switching = false;
+    Color originalColor;
+
+    public Slider slider;
+    public float maxDist;
+    Vector3 start;
+    float maxSat=0;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         activeRenderer = renderers[0];
         activeRenderer.sprite = shapes[currentLevel];
+        originalColor = activeRenderer.color;
+        start = transform.position;
 	}
 	
 	// Update is called once per frame
@@ -45,10 +54,49 @@ public class ShapeShifter : MonoBehaviour {
                 SetShape(7);
             }
         }
-	}
+        float dist = Vector3.Distance(start, transform.position);
+        float saturation = dist / maxDist;
+        if (saturation > maxSat) {
+            Color c = new Color();
+            c.r = newColor(originalColor.r, saturation);
+            c.g = newColor(originalColor.g, saturation);
+            c.b = newColor(originalColor.b, saturation);
+            c.a = 1;
+            activeRenderer.color = c;
+            maxSat = saturation;
+            if (slider != null) {
+                slider.value = maxSat;
+            }
+        }
+    }
+
+    float newColor(float orig, float sat) {
+        return (((1 - orig) / 1) * sat)+orig;
+    }
+
+    IEnumerator FadeUpSat() {
+        Color c = new Color();
+        c.a=1;
+        float t = 0f;
+        float mT = .25f;
+        while (t < mT) {
+            c.r = newColor(originalColor.r, 1 - (t / mT));
+            c.g = newColor(originalColor.g, 1 - (t / mT));
+            c.b = newColor(originalColor.b, 1 - (t / mT));
+            activeRenderer.color = c;
+            if (slider != null) {
+                slider.value = 1 - (t / mT);
+            }
+            t += Time.deltaTime;
+            yield return null;
+        }
+    }
 
     public void SetShape(int level) {
         if (level == currentLevel) {
+            maxSat = 0;
+            start = transform.position;
+            StartCoroutine(FadeUpSat());
             return;
         }
         if (level < 0 || level >= shapes.Length) {
@@ -93,7 +141,7 @@ public class ShapeShifter : MonoBehaviour {
         Vector3 position = new Vector3(0, -2f, 0);
         r.gameObject.transform.localScale = scale;
         r.gameObject.transform.localPosition = position;
-        r.color = new Color(r.color.r, r.color.g, r.color.b, 1);
+        r.color = originalColor;
         r.gameObject.SetActive(true);
         float t = 0;
         while (t <= fadeTime) {

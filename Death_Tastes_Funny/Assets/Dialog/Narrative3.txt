@@ -4,7 +4,7 @@
          { "statement":"I just beat up the guy my girlfriend’s been cheating on me with.",
            "good": {
                "statement":"You should turn yourself in.",
-               "value":-100
+               "value":1
             },
             "neutral":{
                "statement":"Check to see if he’s okay.",

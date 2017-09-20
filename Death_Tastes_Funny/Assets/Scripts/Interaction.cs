@@ -17,16 +17,6 @@ public class Interaction : MonoBehaviour {
         if (!interacting && collidingWith != null && Input.GetKeyDown(KeyCode.F)) {
             collidingWith.Interact(this);
             interacting = true;
-        } else if (interacting) {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                collidingWith.Select(0);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-                collidingWith.Select(1);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-                collidingWith.Select(2);
-            }
         }
 	}
 
