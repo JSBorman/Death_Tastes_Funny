@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour {
             totalLevel += n.getLevel();
         }
         player.SetShape(totalLevel / NPCs.Length);
+        setActiveShape(1);
         if (totalLevel/NPCs.Length == 6) {
             StartCoroutine(WaitAndAfterlife(.5f, 1));
         } else if (totalLevel/NPCs.Length == 0) {
