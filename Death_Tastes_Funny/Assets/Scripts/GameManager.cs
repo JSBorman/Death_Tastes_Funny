@@ -114,7 +114,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void setActiveShape(float a) {
-        int level = player.currentLevel;
+        int l = 0;
+        foreach (GameObject n in NPCs) {
+            l += n.GetComponent<ShapeShifter>().currentLevel;
+        }
+        int level = l / NPCs.Length;
         for (int i = 0; i<shapes.Length; i++) {
             Color c = new Color();
             if (i == level) {
