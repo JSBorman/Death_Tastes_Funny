@@ -21,6 +21,16 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Equals)) {
+            RefreshNPCs();
+        }
 	}
+
+    public void RefreshNPCs() {
+        for (int i =0; i<NPCs.Length; i++) {
+            NPC n = NPCs[i].GetComponent<NPC>();
+            Transform[] spawns =  NPCspawns[i].GetComponentsInChildren<Transform>();
+            n.refresh(spawns[Random.Range(0, spawns.Length)].position);
+        }
+    }
 }

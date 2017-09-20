@@ -13,6 +13,7 @@ public class NPC : MonoBehaviour {
 
     private Dialog dialog;
     private Dialog.Conversation activeConversation;
+    ShapeShifter ss;
 
     // Use this for initialization
     void Start() {
@@ -21,6 +22,8 @@ public class NPC : MonoBehaviour {
         }
         tooltipOScale = interactTooltip.transform.localScale;
         interactTooltip.transform.localScale = Vector3.zero;
+
+        ss = GetComponent<ShapeShifter>();
 
 		NPC_Source.clip = character_theme;
 		NPC_Source.Play ();
@@ -40,6 +43,11 @@ public class NPC : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision) {
         StopAllCoroutines();
         StartCoroutine(ScaleTooltip(-1));
+    }
+
+    public void refresh(Vector3 location) {
+        transform.position = location;
+        ss.SetShape(level);
     }
 
     IEnumerator ScaleTooltip(int dir) {
