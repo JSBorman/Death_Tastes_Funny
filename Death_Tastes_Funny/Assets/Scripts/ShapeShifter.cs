@@ -92,6 +92,15 @@ public class ShapeShifter : MonoBehaviour {
             t += Time.deltaTime;
             yield return null;
         }
+        if (withSat) {
+            c.r = newColor(originalColor.r, Mathf.Min(1 - (t / mT), 0));
+            c.g = newColor(originalColor.g, Mathf.Min(1 - (t / mT), 0));
+            c.b = newColor(originalColor.b, Mathf.Min(1 - (t / mT), 0));
+            activeRenderer.color = c;
+        }
+        if (slider != null) {
+            slider.value = Mathf.Min(1 - (t / mT),0);
+        }
     }
 
     public void SetShape(int level) {
