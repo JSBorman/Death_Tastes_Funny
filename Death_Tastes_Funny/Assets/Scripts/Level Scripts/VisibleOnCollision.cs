@@ -18,7 +18,7 @@ public class VisibleOnCollision : MonoBehaviour {
         
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
         Color tmp = GetComponent<SpriteRenderer>().color;
         tmp.a = alphaOnCollision;
@@ -27,7 +27,7 @@ public class VisibleOnCollision : MonoBehaviour {
     }
 
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnCollisionExit2D(Collision2D other)
     {
         Color tmp = GetComponent<SpriteRenderer>().color;
         tmp.a = 0;
