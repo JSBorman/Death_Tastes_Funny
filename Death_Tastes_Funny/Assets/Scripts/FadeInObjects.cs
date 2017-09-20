@@ -10,9 +10,13 @@ public class FadeInObjects : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        Color tmp = objectToFadeIn.GetComponent<SpriteRenderer>().color;
-        tmp.a = 0;//alphaOnCollision;
-        objectToFadeIn.GetComponent<SpriteRenderer>().color = tmp;
+        /*
+        foreach (SpriteRenderer s in objectToFadeIn.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color tmp = s.color;
+            tmp.a = 0;//+= Time.deltaTime / 10000f;//alphaOnCollision;
+            s.color = tmp;
+        }*/
     }
 
     // Update is called once per frame
@@ -22,12 +26,16 @@ public class FadeInObjects : MonoBehaviour {
         {
             foreach (SpriteRenderer s in objectToFadeIn.GetComponentsInChildren<SpriteRenderer>())
             {
-                Color tmp = objectToFadeIn.GetComponent<SpriteRenderer>().color;
-                tmp.a = 0;//+= Time.deltaTime / 10000f;//alphaOnCollision;
+                Color tmp = s.color;
+                tmp.a += Time.deltaTime / 3f;//alphaOnCollision;
                 s.color = tmp;
+
+                if (tmp.a >= 1)
+                {
+                    startFade = false;
+                }
             }
 
-           
         }
     }
 
@@ -35,5 +43,14 @@ public class FadeInObjects : MonoBehaviour {
 void OnTriggerEnter2D(Collider2D other)
     {
         startFade = true;
+        print("starting fade...");
+
+
+        foreach (SpriteRenderer s in objectToFadeIn.GetComponentsInChildren<SpriteRenderer>())
+        {
+            Color tmp = s.color;
+            tmp.a = 0;
+            s.color = tmp;
+        }
     }
 }
