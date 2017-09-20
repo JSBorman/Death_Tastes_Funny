@@ -74,16 +74,18 @@ public class ShapeShifter : MonoBehaviour {
         return (((1 - orig) / 1) * sat)+orig;
     }
 
-    IEnumerator FadeUpSat() {
+    IEnumerator FadeDown(bool withSat) {
         Color c = new Color();
         c.a=1;
         float t = 0f;
         float mT = .25f;
         while (t < mT) {
-            c.r = newColor(originalColor.r, 1 - (t / mT));
-            c.g = newColor(originalColor.g, 1 - (t / mT));
-            c.b = newColor(originalColor.b, 1 - (t / mT));
-            activeRenderer.color = c;
+            if (withSat) {
+                c.r = newColor(originalColor.r, 1 - (t / mT));
+                c.g = newColor(originalColor.g, 1 - (t / mT));
+                c.b = newColor(originalColor.b, 1 - (t / mT));
+                activeRenderer.color = c;
+            }
             if (slider != null) {
                 slider.value = 1 - (t / mT);
             }
@@ -96,7 +98,7 @@ public class ShapeShifter : MonoBehaviour {
         if (level == currentLevel) {
             maxSat = 0;
             start = transform.position;
-            StartCoroutine(FadeUpSat());
+            StartCoroutine(FadeDown(true));
             return;
         }
         if (level < 0 || level >= shapes.Length) {
@@ -109,6 +111,7 @@ public class ShapeShifter : MonoBehaviour {
         if (switching) {
             return;
         }
+        StartCoroutine(FadeDown(false));
         switching = true;
         Debug.Log(string.Format("Changing to level {0}...", level));
         SpriteRenderer oldRenderer = activeRenderer;
