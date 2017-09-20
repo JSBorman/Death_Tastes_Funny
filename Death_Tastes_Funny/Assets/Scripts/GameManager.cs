@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager INSTANCE;
     public bool Debug;
+    public GameObject[] NPCs;
+    public GameObject[] NPCspawns;
 
 	// Use this for initialization
 	void Start () {
